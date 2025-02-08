@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int n;
+    char *buffer;
+
+printf("Qual o tamanho? "); scanf("%d", n);
+
+buffer = (char *) malloc(sizeof(char) * (n+1));
+// buffer recebe um endereco tipo char;
+// malloc(tamanho na memoria(char) * (quant. elementos + \0))
+
+
+
+free(buffer);
+return 0;
+}
