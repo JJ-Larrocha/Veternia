@@ -2,32 +2,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum efeito {queim = 1, queimGrv, afgmnt};
+enum atributo {queim = 1, queimGrv, afgmnt};
 
 // Tipos e Estruturas
 typedef struct{
     int dano;
     int porcentagemAcerto;
     int turnoEft;
-    efeito atrbt;
-} atq;
+    atributo atrbt;
+} poder;
 
 typedef struct{
-    efeito atrbt;
+    atributo atrbt;
 	int porcentagemAcerto;
 } item;
 
 // Prototipos
 
-int Ataque_do_Jogador(atq ataque, bool dmgBoool, efeito *atrbt);
+int Ataque_do_Jogador(poder ataque, bool dmgBoool, atributo *atrbt);
 bool Porcentagem_Acerto(int porcentagem);
 
 // Main
 
 int main(){
 	int vida = 100;
-	efeito efeitoNoInimigo;
-	atq fogo, agua, golpe;
+	atributo efeitoNoInimigo;
+	poder fogo, agua, golpe;
 
 	fogo.atrbt = queim; fogo.dano = 13; fogo.porcentagemAcerto = 30;
 	agua.atrbt = afgmnt; agua.dano = 7; agua.porcentagemAcerto = 5;
@@ -61,8 +61,8 @@ return 0;
 
 // Funcoes
 
-int Ataque_do_Jogador(atq ataque, bool dmgBoool, efeito *atrbt){
-	// (estrutura de ataque que recebera os valores, se o dano tem % de acerto, efeito aplicar ao inimigo)
+int Ataque_do_Jogador(poder ataque, bool dmgBoool, atributo *atrbt){
+
     int golpe = 0; // Dano total
 
 	/*Verificar a precedencia dos ifs*/
@@ -72,7 +72,6 @@ int Ataque_do_Jogador(atq ataque, bool dmgBoool, efeito *atrbt){
 	/* Esse if nao deixa o golpe receber valor */
 	// else if(Porcentagem_Acerto(ataque.porcentagemAcerto)) // Atribuicao de efeitos
 	// 	*atrbt = ataque.atrbt;
-
 	
 	else
 		golpe = ataque.dano;	
